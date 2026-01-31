@@ -1,9 +1,28 @@
 import "./index.css";
+import { useRef, useState } from "react";
 
 function App() {
-  const changeColor = () => {};
+  const appReference = useRef();
+  const [color, setColor] = useState("white");
 
-  return <div className="App" onClick={changeColor}></div>;
+  const changeColor = () => {
+    let redColor = Math.floor(Math.random() * 256);
+    let blueColor = Math.floor(Math.random() * 256);
+    let greenColor = Math.floor(Math.random() * 256);
+
+    setColor(
+      (appReference.current.style.backgroundColor = `rgb(${redColor}, ${blueColor}, ${greenColor})`)
+    );
+  };
+
+  return (
+    <div
+      className="App"
+      onClick={changeColor}
+      ref={appReference}
+      style={{ backgroundColor: { color } }}
+    ></div>
+  );
 }
 
 export default App;

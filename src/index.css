@@ -2,6 +2,7 @@
   margin: 0px;
   font-family: Helvetica, sans-serif;
   font-weight: 300;
+  transition: all 1s ease;
 }
 
 .App {
